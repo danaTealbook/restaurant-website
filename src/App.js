@@ -1,5 +1,13 @@
+import Header from "./components/Header";
+import Menu from "./components/Menu";
+
 function App() {
-  return <div className="text-blue-200">Hello</div>;
+  return (
+    <div>
+      <Header />
+      <Menu />
+    </div>
+  );
 }
 
 export default App;

@@ -1,0 +1,49 @@
+{
+  "menuItems": [
+    {
+      "name": "ramen",
+      "src": "./images/ramen.jpg",
+      "price": 25
+    },
+    {
+      "name": "pizza",
+      "src": "./images/pizza.jpg",
+      "price": 20
+    },
+    {
+      "name": "spaghetti",
+      "src": "./images/spaghetti.jpg",
+      "price": 24
+    },
+    {
+      "name": "salmon",
+      "src": "./images/salmon.jpg",
+      "price": 25
+    },
+    {
+      "name": "sushi",
+      "src": "./images/sushi.jpg",
+      "price": 15
+    },
+    {
+      "name": "salad",
+      "src": "./images/salad.jpg",
+      "price": 17
+    },
+    {
+      "name": "pancakes",
+      "src": "./images/pancakes.jpg",
+      "price": 10
+    },
+    {
+      "name": "chocolate cake",
+      "src": "./images/chocolateCake.jpg",
+      "price": 8
+    },
+    {
+      "name": "cheesecake",
+      "src": "./images/cheesecake.jpg",
+      "price": 8
+    }
+  ]
+}
