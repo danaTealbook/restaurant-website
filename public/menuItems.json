@@ -3,47 +3,56 @@
     {
       "name": "ramen",
       "src": "./images/ramen.jpg",
-      "price": 25
+      "price": 25,
+      "count": 0
     },
     {
       "name": "pizza",
       "src": "./images/pizza.jpg",
-      "price": 20
+      "price": 20,
+      "count": 0
     },
     {
       "name": "spaghetti",
       "src": "./images/spaghetti.jpg",
-      "price": 24
+      "price": 24,
+      "count": 0
     },
     {
       "name": "salmon",
       "src": "./images/salmon.jpg",
-      "price": 25
+      "price": 25,
+      "count": 0
     },
     {
       "name": "sushi",
       "src": "./images/sushi.jpg",
-      "price": 15
+      "price": 15,
+      "count": 0
     },
     {
       "name": "salad",
       "src": "./images/salad.jpg",
-      "price": 17
+      "price": 17,
+      "count": 0
     },
     {
       "name": "pancakes",
       "src": "./images/pancakes.jpg",
-      "price": 10
+      "price": 10,
+      "count": 0
     },
     {
       "name": "chocolate cake",
       "src": "./images/chocolateCake.jpg",
-      "price": 8
+      "price": 8,
+      "count": 0
     },
     {
       "name": "cheesecake",
       "src": "./images/cheesecake.jpg",
-      "price": 8
+      "price": 8,
+      "count": 0
     }
   ]
 }
