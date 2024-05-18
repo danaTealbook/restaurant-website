@@ -87,7 +87,7 @@ function Menu({ setCart }) {
         />
       </div>
 
-      <div className="flex justify-center items-center">
+      <div className="flex flex-wrap justify-center items-center">
         {Object.keys(tokens).map((t) => (
           <button
             key={t}
