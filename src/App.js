@@ -10,6 +10,7 @@ function App() {
   return (
     <div>
       <Header setShowCart={setShowCart} />
+
       <div className="grid grid-cols-4">
         <Cart cart={cart} showCart={showCart} />
         <Menu setCart={setCart} />
