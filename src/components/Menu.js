@@ -27,7 +27,14 @@ function Menu({ setCart }) {
 
   return (
     <div className="col-span-4 sm:col-span-3 bg-gradient-to-b from-blue-100 m-0 px-4 lg:px-24">
-      <h1 className="text-center py-8 font-bold text-xl">Menu</h1>
+      {/* <h1 className="text-center py-8 font-bold text-xl animate-glow">Menu</h1> */}
+      <div className="flex justify-center pt-4">
+        <img
+          className="w-44"
+          src="./images/menu-text-copy.png"
+          alt="menu-text"
+        />
+      </div>
       <div className="grid gap-10 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 p-4 sm:p-10">
         {menuItems.map((food) => (
           <div
@@ -41,10 +48,7 @@ function Menu({ setCart }) {
             />
             <div className="flex justify-between items-center text-base px-2 py-1">
               <span className="text-cyan-800">{parseName(food.name)}</span>
-              <Button
-                value="Add Me"
-                handleClick={() => handleAddToCart(food)}
-              />
+              <Button value="Add Me" onClick={() => handleAddToCart(food)} />
             </div>
             <div className="absolute top-0 m-2 py-1 px-2 bg-gray-400 rounded-full ">
               <span className="text-white">${food.price}</span>

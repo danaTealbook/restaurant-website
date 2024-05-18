@@ -1,11 +1,21 @@
 import parseName from "../functions/parseName";
 import Button from "./Button";
 
-function Cart({ cart }) {
+function Cart({ cart, showCart }) {
   const total = cart.reduce((acc, food) => acc + food.price * food.count, 0);
 
+  const handleOrder = () => {
+    alert(
+      "This is a fictional restaurant website, so purchasing part is not implemented."
+    );
+  };
+
   return (
-    <div className="col-span-1 hidden sm:block">
+    <div
+      className={`col-span-4  ${
+        showCart ? "" : "hidden"
+      } sm:block sm:col-span-1 sm:sticky top-0`}
+    >
       <div className="flex flex-col p-4">
         <div className="text-center mt-4 mb-2 font-bold text-xl">Cart</div>
         {cart.map((c, index) => (
@@ -26,7 +36,7 @@ function Cart({ cart }) {
           <div>Total: </div>
           <div>${total}</div>
         </div>
-        <Button style="mt-6" value="Order now" />
+        <Button style="mt-6" value="Order now" onClick={handleOrder} />
       </div>
     </div>
   );
