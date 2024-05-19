@@ -67,7 +67,12 @@ function Cart({ cart, setCart, showCart }) {
           <div>Total: </div>
           <div>${total}</div>
         </div>
-        <Button addStyle="mt-6" value="Order now" onClick={handleOrder} />
+        <Button
+          addStyle="mt-6"
+          value="Order now"
+          onClick={handleOrder}
+          disabled={total === 0}
+        />
       </div>
     </div>
   );
