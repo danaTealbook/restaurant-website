@@ -17,10 +17,7 @@ function Menu({ setCart }) {
   useEffect(() => {
     fetch("/menuItems.json")
       .then((response) => response.json())
-      .then((data) => {
-        setMenuItems(data.menuItems);
-        setAllMenuItems(data.menuItems);
-      })
+      .then((data) => setAllMenuItems(data.menuItems))
       .catch((error) => console.error("Error fetching the menu items:", error));
   }, []);
 
@@ -36,7 +33,7 @@ function Menu({ setCart }) {
       );
       setMenuItems(filteredItems);
     }
-  }, [tokens]);
+  }, [tokens, allMenuItems]);
 
   const handleAddToCart = (food) => {
     setCart((prevCart) => {

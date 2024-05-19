@@ -14,7 +14,7 @@ function Cart({ cart, showCart }) {
     <div
       className={`col-span-4  ${
         showCart ? "" : "hidden"
-      } sm:block sm:col-span-1 sm:sticky top-0`}
+      } sm:block sm:col-span-1`}
     >
       <div className="flex flex-col p-4">
         <div className="text-center mt-4 mb-2 font-bold text-xl">Cart</div>
@@ -36,7 +36,7 @@ function Cart({ cart, showCart }) {
           <div>Total: </div>
           <div>${total}</div>
         </div>
-        <Button style="mt-6" value="Order now" onClick={handleOrder} />
+        <Button addStyle="mt-6" value="Order now" onClick={handleOrder} />
       </div>
     </div>
   );
