@@ -12,7 +12,7 @@ function App() {
       <Header setShowCart={setShowCart} />
 
       <div className="grid grid-cols-4">
-        <Cart cart={cart} showCart={showCart} />
+        <Cart cart={cart} setCart={setCart} showCart={showCart} />
         <Menu setCart={setCart} />
       </div>
     </div>

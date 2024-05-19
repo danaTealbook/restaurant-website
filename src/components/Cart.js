@@ -1,12 +1,22 @@
 import parseName from "../functions/parseName";
 import Button from "./Button";
 
-function Cart({ cart, showCart }) {
+function Cart({ cart, setCart, showCart }) {
   const total = cart.reduce((acc, food) => acc + food.price * food.count, 0);
 
   const handleOrder = () => {
     alert(
       "This is a fictional restaurant website, so purchasing part is not implemented."
+    );
+  };
+
+  const handleDeleteItem = (foodName) => {
+    setCart((prevValue) =>
+      prevValue
+        .map((item) =>
+          item.name === foodName ? { ...item, count: item.count - 1 } : item
+        )
+        .filter((item) => item.count !== 0)
     );
   };
 
@@ -26,7 +36,28 @@ function Cart({ cart, showCart }) {
                 <span>{parseName(c.name)}</span>
                 {c.count > 1 && <span> * {c.count}</span>}
               </div>
-              <span>${c.count * c.price}</span>
+              <div className="flex items-center">
+                <span>${c.count * c.price}</span>
+                <button
+                  className="bg-red-200 rounded-full p-1 ml-1"
+                  onClick={() => handleDeleteItem(c.name)}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-4 h-4"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 18 18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
             <hr />
           </div>
