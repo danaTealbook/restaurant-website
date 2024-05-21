@@ -10,3 +10,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.custom-text-shadow {
+  text-shadow: "0 0 20px #F9FAFB";
+}
