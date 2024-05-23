@@ -10,6 +10,10 @@ function Cart({ cart, setCart }) {
     );
   };
 
+  const handleEmptyCart = () => {
+    setCart([]);
+  };
+
   const handleDeleteItem = (foodName) => {
     setCart((prevValue) =>
       prevValue
@@ -72,6 +76,15 @@ function Cart({ cart, setCart }) {
           onClick={handleOrder}
           disabled={total === 0}
         />
+        <div className="flex flex-col items-center">
+          <Button
+            addStyle="mt-6 w-2/4"
+            color="bg-red-600"
+            value="Empty cart"
+            onClick={handleEmptyCart}
+            disabled={total === 0}
+          />
+        </div>
       </div>
     </section>
   );

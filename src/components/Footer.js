@@ -2,7 +2,7 @@ function Footer() {
   return (
     <div className="flex justify-center items-center w-full h-16 bg-gradient-to-b from-red-50 to-red-600">
       <button className="bg-gray-100  rounded-md h-10 w-10 flex justify-center items-center hover:shadow-md hover:bg-red-100">
-        <a href="#">
+        <a href="#main">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
