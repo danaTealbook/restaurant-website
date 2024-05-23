@@ -3,7 +3,8 @@ import ParticlesBackground from "./ParticlesBackground";
 function Main() {
   return (
     <section
-      className="flex justify-center flex-col items-center min-h-96 bg-cover bg-center bg-no-repeat text-white shadow-md"
+      id="main"
+      className="flex justify-center flex-col items-center min-h-screen bg-cover bg-center bg-no-repeat text-white shadow-md"
       style={{ backgroundImage: "url('/images/main-background.jpg')" }}
     >
       <ParticlesBackground />

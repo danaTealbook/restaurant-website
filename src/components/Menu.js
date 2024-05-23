@@ -74,7 +74,10 @@ function Menu({ setCart }) {
   };
 
   return (
-    <div className="col-span-4 sm:col-span-3 bg-gradient-to-b from-blue-100 m-0 px-4 lg:px-24">
+    <section
+      id="menu"
+      className="col-span-4 sm:col-span-3 bg-gray-100 m-0 px-4 lg:px-24"
+    >
       {/* <h1 className="text-center py-8 font-bold text-xl animate-glow">Menu</h1> */}
       <div className="flex justify-center pt-4">
         <img
@@ -88,8 +91,8 @@ function Menu({ setCart }) {
         {Object.keys(tokens).map((t) => (
           <button
             key={t}
-            className={`px-4 py-1 mx-2 mt-4 rounded-full hover:opacity-90 hover:shadow-md cursor-pointer 
-              ${tokens[t] ? " bg-blue-500" : " bg-blue-300"}`}
+            className={`px-4 py-1 mx-2 mt-4 text-white font-medium rounded-full hover:opacity-90 hover:shadow-md cursor-pointer 
+              ${tokens[t] ? " bg-red-700" : " bg-red-400"}`}
             onClick={() => handleToggle(t)}
           >
             {parseName(t)}
@@ -101,15 +104,15 @@ function Menu({ setCart }) {
         {menuItems.map((food) => (
           <div
             key={food.name}
-            className="relative border-2 rounded-lg border-cyan-800 overflow-hidden transform hover:scale-105 hover:shadow-lg transition ease-in-out duration-500"
+            className="relative border rounded-lg border-red-800 overflow-hidden transform hover:scale-105 hover:shadow-lg transition ease-in-out duration-500"
           >
             <img
               className="w-full h-48 sm:h-56 object-cover"
               src={food.src}
               alt={food.name}
             />
-            <div className="flex justify-between items-center text-base px-2 py-1">
-              <span className="text-cyan-800">{parseName(food.name)}</span>
+            <div className="flex justify-between items-center text-base px-2 py-1 bg-gray-50">
+              <span className="text-red-800">{parseName(food.name)}</span>
               <Button value="Add Me" onClick={() => handleAddToCart(food)} />
             </div>
             <div className="absolute top-0 m-2 py-1 px-2 bg-gray-400 rounded-full ">
@@ -118,7 +121,7 @@ function Menu({ setCart }) {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -61,7 +61,7 @@ const ParticlesBackground = () => {
   if (init) {
     return (
       <Particles
-        className="w-full min-h-96 absolute transform translate-z-0"
+        className="w-full min-h-screen absolute transform translate-z-0"
         id="tsparticles"
         particlesLoaded={particlesLoaded}
         options={options}

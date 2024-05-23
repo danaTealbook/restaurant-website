@@ -1,26 +1,62 @@
-function Header({ setShowCart }) {
-  const handleClick = (value) => {
-    setShowCart(value);
-  };
+import { useEffect, useState } from "react";
+
+function Header() {
+  const [activeTab, setActiveTab] = useState("main");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // set active tab
+      const sections = document.querySelectorAll("section");
+
+      let currentSection = "main";
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 100 && rect.bottom >= 100) {
+          currentSection = section.id;
+        }
+      });
+
+      setActiveTab(currentSection);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <div className="sticky top-0 z-10 sm:hidden m-0 p-2 text-xl font-bold flex justify-between items-center text-gray-100 bg-gradient-to-b from-blue-400 to-blue-600 shadow-lg">
-      <h1 className="hover:text-gray-300 cursor-pointer">Home</h1>
-      <div className="flex">
-        <h1
-          className="hover:text-gray-300 cursor-pointer"
-          onClick={() => handleClick(false)}
+    <header className="sticky top-0 z-10 sm:hidden">
+      <nav className="m-0 p-2 text-xl font-bold flex justify-between items-center text-gray-100 bg-gradient-to-b from-red-50 to-red-600 shadow-lg">
+        <a
+          href="#main"
+          className={`hover:text-gray-300 cursor-pointer ${
+            activeTab === "main" ? "text-black" : ""
+          }`}
         >
-          Menu
-        </h1>
-        <h1
-          className="ml-6 hover:text-gray-300 cursor-pointer"
-          onClick={() => handleClick(true)}
-        >
-          Cart
-        </h1>
-      </div>
-    </div>
+          Home
+        </a>
+        <div className="flex">
+          <a
+            href="#menu"
+            className={`hover:text-gray-300 cursor-pointer ${
+              activeTab === "menu" ? "text-black" : ""
+            }`}
+          >
+            Menu
+          </a>
+          <a
+            href="#cart"
+            className={`ml-6 hover:text-gray-300 cursor-pointer ${
+              activeTab === "cart" ? "text-black" : ""
+            }`}
+          >
+            Cart
+          </a>
+        </div>
+      </nav>
+    </header>
   );
 }
 

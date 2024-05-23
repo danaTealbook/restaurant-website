@@ -6,16 +6,15 @@ import Main from "./components/Main";
 
 function App() {
   const [cart, setCart] = useState([]);
-  const [showCart, setShowCart] = useState(false); //on mobile devices, the cart is hidden
 
   return (
     <div>
-      <Header setShowCart={setShowCart} />
+      <Header />
 
       <Main />
 
       <div className="grid grid-cols-4">
-        <Cart cart={cart} setCart={setCart} showCart={showCart} />
+        <Cart cart={cart} setCart={setCart} />
         <Menu setCart={setCart} />
       </div>
     </div>

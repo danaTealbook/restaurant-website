@@ -1,7 +1,7 @@
 import parseName from "../functions/parseName";
 import Button from "./Button";
 
-function Cart({ cart, setCart, showCart }) {
+function Cart({ cart, setCart }) {
   const total = cart.reduce((acc, food) => acc + food.price * food.count, 0);
 
   const handleOrder = () => {
@@ -21,11 +21,7 @@ function Cart({ cart, setCart, showCart }) {
   };
 
   return (
-    <div
-      className={`col-span-4  ${
-        showCart ? "" : "hidden"
-      } sm:block sm:col-span-1`}
-    >
+    <section id="cart" className={`col-span-4 sm:block sm:col-span-1`}>
       <div className="flex flex-col p-4">
         <div className="text-center mt-4 mb-2 font-bold text-xl">Cart</div>
         {cart.map((c, index) => (
@@ -74,7 +70,7 @@ function Cart({ cart, setCart, showCart }) {
           disabled={total === 0}
         />
       </div>
-    </div>
+    </section>
   );
 }
 
