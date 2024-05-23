@@ -21,7 +21,10 @@ function Cart({ cart, setCart }) {
   };
 
   return (
-    <section id="cart" className="col-span-4 order-2 sm:col-span-1 sm:order-1">
+    <section
+      id="cart"
+      className="col-span-4 order-2 sm:col-span-1 sm:order-1 mb-6"
+    >
       <div className="flex flex-col p-4">
         <div className="text-center mt-4 mb-2 font-bold text-xl">Cart</div>
         {cart.map((c, index) => (

@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Menu from "./components/Menu";
 import Cart from "./components/Cart";
 import Main from "./components/Main";
+import Footer from "./components/Footer";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -17,6 +18,8 @@ function App() {
         <Menu setCart={setCart} />
         <Cart cart={cart} setCart={setCart} />
       </div>
+
+      <Footer />
     </div>
   );
 }

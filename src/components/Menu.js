@@ -78,7 +78,6 @@ function Menu({ setCart }) {
       id="menu"
       className="col-span-4 order-1 sm:col-span-3 sm:order-2 bg-gray-100 m-0 px-4 lg:px-24"
     >
-      {/* <h1 className="text-center py-8 font-bold text-xl animate-glow">Menu</h1> */}
       <div className="flex justify-center pt-4">
         <img
           className="w-44"
@@ -104,7 +103,7 @@ function Menu({ setCart }) {
         {menuItems.map((food) => (
           <div
             key={food.name}
-            className="relative border rounded-lg border-red-800 overflow-hidden transform hover:scale-105 hover:shadow-lg transition ease-in-out duration-500"
+            className="relative border rounded-lg border-red-800 overflow-hidden transform sm:hover:scale-105 hover:shadow-lg transition ease-in-out duration-500"
           >
             <img
               className="w-full h-48 sm:h-56 object-cover"
