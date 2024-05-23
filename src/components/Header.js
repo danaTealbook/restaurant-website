@@ -31,7 +31,7 @@ function Header() {
       <nav className="m-0 p-2 text-xl font-bold flex justify-between items-center text-gray-100 bg-gradient-to-b from-red-50 to-red-600 shadow-lg">
         <a
           href="#main"
-          className={`hover:text-gray-300 cursor-pointer ${
+          className={`cursor-pointer ${
             activeTab === "main" ? "text-black" : ""
           }`}
         >
@@ -40,7 +40,7 @@ function Header() {
         <div className="flex">
           <a
             href="#menu"
-            className={`hover:text-gray-300 cursor-pointer ${
+            className={`cursor-pointer ${
               activeTab === "menu" ? "text-black" : ""
             }`}
           >
@@ -48,7 +48,7 @@ function Header() {
           </a>
           <a
             href="#cart"
-            className={`ml-6 hover:text-gray-300 cursor-pointer ${
+            className={`ml-6 cursor-pointer ${
               activeTab === "cart" ? "text-black" : ""
             }`}
           >

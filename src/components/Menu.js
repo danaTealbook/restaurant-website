@@ -76,7 +76,7 @@ function Menu({ setCart }) {
   return (
     <section
       id="menu"
-      className="col-span-4 sm:col-span-3 bg-gray-100 m-0 px-4 lg:px-24"
+      className="col-span-4 order-1 sm:col-span-3 sm:order-2 bg-gray-100 m-0 px-4 lg:px-24"
     >
       {/* <h1 className="text-center py-8 font-bold text-xl animate-glow">Menu</h1> */}
       <div className="flex justify-center pt-4">

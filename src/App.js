@@ -14,8 +14,8 @@ function App() {
       <Main />
 
       <div className="grid grid-cols-4">
-        <Cart cart={cart} setCart={setCart} />
         <Menu setCart={setCart} />
+        <Cart cart={cart} setCart={setCart} />
       </div>
     </div>
   );
