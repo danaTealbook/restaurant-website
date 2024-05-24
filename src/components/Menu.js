@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import parseName from "../functions/parseName";
 import Button from "./Button";
+import { toast } from "sonner";
 
 function Menu({ setCart }) {
   const [allMenuItems, setAllMenuItems] = useState([]);
@@ -46,6 +47,7 @@ function Menu({ setCart }) {
         return [...prevCart, { ...food, count: 1 }];
       }
     });
+    toast.success(parseName(food.name) + " added to cart");
   };
 
   const handleToggle = (token) => {

@@ -1,5 +1,6 @@
 import parseName from "../functions/parseName";
 import Button from "./Button";
+import { toast } from "sonner";
 
 function Cart({ cart, setCart }) {
   const total = cart.reduce((acc, food) => acc + food.price * food.count, 0);
@@ -12,6 +13,7 @@ function Cart({ cart, setCart }) {
 
   const handleEmptyCart = () => {
     setCart([]);
+    toast("Cart is now empty");
   };
 
   const handleDeleteItem = (foodName) => {
@@ -22,6 +24,7 @@ function Cart({ cart, setCart }) {
         )
         .filter((item) => item.count !== 0)
     );
+    toast(foodName + " is deleted");
   };
 
   return (

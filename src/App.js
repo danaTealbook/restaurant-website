@@ -4,6 +4,7 @@ import Menu from "./components/Menu";
 import Cart from "./components/Cart";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
+import { Toaster } from "sonner";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -20,6 +21,7 @@ function App() {
       </div>
 
       <Footer />
+      <Toaster />
     </div>
   );
 }
