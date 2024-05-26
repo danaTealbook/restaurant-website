@@ -1,5 +1,5 @@
 Use Node version: v20.11.1
-Make sure to install packages, (delete node_modules folder, package-lock.json file if you have them in the root node) run the following on a terminal in the root node: npm install
+Make sure to install packages, (delete node_modules folder, package-lock.json file if you have them in the project directory) run the following on a terminal from the project directory: npm install
 
 Then run the following to start the project: npm start
 

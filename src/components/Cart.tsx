@@ -1,8 +1,14 @@
 import parseName from "../functions/parseName";
+import { MenuItem } from "../interfaces/MenuItem";
 import Button from "./Button";
 import { toast } from "sonner";
 
-function Cart({ cart, setCart }) {
+type CartProps = {
+  cart: MenuItem[];
+  setCart: (cart: (prevCart: MenuItem[]) => MenuItem[]) => void;
+};
+
+function Cart({ cart, setCart }: CartProps) {
   const total = cart.reduce((acc, food) => acc + food.price * food.count, 0);
 
   const handleOrder = () => {
@@ -12,11 +18,11 @@ function Cart({ cart, setCart }) {
   };
 
   const handleEmptyCart = () => {
-    setCart([]);
+    setCart(() => []);
     toast("Cart is now empty");
   };
 
-  const handleDeleteItem = (foodName) => {
+  const handleDeleteItem = (foodName: string) => {
     setCart((prevValue) =>
       prevValue
         .map((item) =>

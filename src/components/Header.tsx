@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 function Header() {
-  const [activeTab, setActiveTab] = useState("main");
+  const [activeTab, setActiveTab] = useState<string>("main");
 
   useEffect(() => {
     const handleScroll = () => {

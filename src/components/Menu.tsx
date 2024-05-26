@@ -2,18 +2,26 @@ import { useState, useEffect } from "react";
 import parseName from "../functions/parseName";
 import Button from "./Button";
 import { toast } from "sonner";
+import { MenuItem } from "../interfaces/MenuItem";
+import { Tokens } from "../interfaces/Tokens";
 
-function Menu({ setCart }) {
-  const [allMenuItems, setAllMenuItems] = useState([]);
-  const [menuItems, setMenuItems] = useState([]);
+type MenuProps = {
+  setCart: (cart: (prevCart: MenuItem[]) => MenuItem[]) => void;
+};
 
-  const [tokens, setTokens] = useState({
+function Menu({ setCart }: MenuProps) {
+  const [allMenuItems, setAllMenuItems] = useState<MenuItem[]>([]);
+  const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
+
+  const initialTokens: Tokens = {
     all: true,
     hot: false,
     dessert: false,
     fish: false,
     salad: false,
-  });
+  };
+
+  const [tokens, setTokens] = useState<Tokens>(initialTokens);
 
   useEffect(() => {
     fetch("/menuItems.json")
@@ -27,7 +35,7 @@ function Menu({ setCart }) {
       setMenuItems(allMenuItems);
     } else {
       const selectedTokens = Object.keys(tokens).filter(
-        (token) => tokens[token] && token !== "all"
+        (token) => tokens[token as keyof Tokens] && token !== "all"
       );
       const filteredItems = allMenuItems.filter((item) =>
         selectedTokens.some((token) => item.keywords.includes(token))
@@ -36,7 +44,7 @@ function Menu({ setCart }) {
     }
   }, [tokens, allMenuItems]);
 
-  const handleAddToCart = (food) => {
+  const handleAddToCart = (food: MenuItem) => {
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.name === food.name);
       if (existingItem) {
@@ -50,7 +58,7 @@ function Menu({ setCart }) {
     toast.success(parseName(food.name) + " added to cart");
   };
 
-  const handleToggle = (token) => {
+  const handleToggle = (token: keyof Tokens) => {
     // do nothing if all is selected when it's true
     if (!tokens["all"] || token !== "all") {
       setTokens((prevValue) => {
@@ -58,14 +66,14 @@ function Menu({ setCart }) {
         // Set "all" to false if any other token is selected,
         // to true if all others are deselected
         if (token !== "all") {
-          newTokens.all = !Object.values(newTokens).some(
-            (value, key) => key !== "all" && value === true
+          newTokens.all = !Object.entries(newTokens).some(
+            ([key, value]) => key !== "all" && value === true
           );
         } else {
           // If "all" is toggled, set all other tokens to false
           if (newTokens.all) {
             Object.keys(newTokens).forEach((key) => {
-              if (key !== "all") newTokens[key] = false;
+              if (key !== "all") newTokens[key as keyof Tokens] = false;
             });
           }
         }
@@ -93,10 +101,10 @@ function Menu({ setCart }) {
           <button
             key={t}
             className={`px-4 py-1 mx-2 mt-4 text-white font-medium rounded-full hover:opacity-90 hover:shadow-md cursor-pointer 
-              ${tokens[t] ? " bg-red-700" : " bg-red-400"}`}
-            onClick={() => handleToggle(t)}
+              ${tokens[t as keyof Tokens] ? " bg-red-700" : " bg-red-400"}`}
+            onClick={() => handleToggle(t as keyof Tokens)}
           >
-            {parseName(t)}
+            {parseName(t as keyof Tokens)}
           </button>
         ))}
       </div>
