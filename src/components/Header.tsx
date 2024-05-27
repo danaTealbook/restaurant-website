@@ -31,10 +31,15 @@ function Header() {
       <nav className="m-0 p-2 text-xl font-bold flex justify-between items-center text-gray-100 bg-gradient-to-b from-red-50 to-red-600 shadow-lg">
         <a
           href="#main"
-          className={`cursor-pointer ${
+          className={`cursor-pointer flex items-center gap-1 ${
             activeTab === "main" ? "text-black" : ""
           }`}
         >
+          <img
+            src="./images/logo.png"
+            alt="logo"
+            className="w-8 inline-block"
+          ></img>
           Home
         </a>
         <div className="flex">
