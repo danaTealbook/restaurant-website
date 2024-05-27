@@ -1,0 +1,67 @@
+{
+  "menuItems": [
+    {
+      "name": "ramen",
+      "src": "./images/ramen.jpg",
+      "price": 25,
+      "count": 0,
+      "keywords": ["hot"]
+    },
+    {
+      "name": "pizza",
+      "src": "./images/pizza.jpg",
+      "price": 20,
+      "count": 0,
+      "keywords": ["hot"]
+    },
+    {
+      "name": "spaghetti",
+      "src": "./images/spaghetti.jpg",
+      "price": 24,
+      "count": 0,
+      "keywords": ["hot"]
+    },
+    {
+      "name": "salmon",
+      "src": "./images/salmon.jpg",
+      "price": 25,
+      "count": 0,
+      "keywords": ["hot", "fish"]
+    },
+    {
+      "name": "sushi",
+      "src": "./images/sushi.jpg",
+      "price": 15,
+      "count": 0,
+      "keywords": ["fish"]
+    },
+    {
+      "name": "salad",
+      "src": "./images/salad.jpg",
+      "price": 17,
+      "count": 0,
+      "keywords": ["salad"]
+    },
+    {
+      "name": "pancakes",
+      "src": "./images/pancakes.jpg",
+      "price": 10,
+      "count": 0,
+      "keywords": ["dessert"]
+    },
+    {
+      "name": "chocolate cake",
+      "src": "./images/chocolateCake.jpg",
+      "price": 8,
+      "count": 0,
+      "keywords": ["dessert"]
+    },
+    {
+      "name": "cheesecake",
+      "src": "./images/cheesecake.jpg",
+      "price": 8,
+      "count": 0,
+      "keywords": ["dessert"]
+    }
+  ]
+}
