@@ -5,7 +5,7 @@ function Main() {
     <section
       id="main"
       className="flex justify-center flex-col items-center min-h-screen bg-cover bg-center bg-no-repeat text-white shadow-md"
-      style={{ backgroundImage: "url('/images/main-background.jpg')" }}
+      style={{ backgroundImage: "url('./images/main-background.jpg')" }}
     >
       <ParticlesBackground />
       <p className="font-bold custom-text-shadow">Welcome to</p>

@@ -24,7 +24,7 @@ function Menu({ setCart }: MenuProps) {
   const [tokens, setTokens] = useState<Tokens>(initialTokens);
 
   useEffect(() => {
-    fetch("/menuItems.json")
+    fetch("./menuItems.json")
       .then((response) => response.json())
       .then((data) => setAllMenuItems(data.menuItems))
       .catch((error) => console.error("Error fetching the menu items:", error));
