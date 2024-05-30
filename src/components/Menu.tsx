@@ -4,6 +4,7 @@ import Button from "./Button";
 import { toast } from "sonner";
 import { MenuItem } from "../interfaces/MenuItem";
 import { Tokens } from "../interfaces/Tokens";
+import LazyLoad from "react-lazyload";
 
 type MenuProps = {
   setCart: (cart: (prevCart: MenuItem[]) => MenuItem[]) => void;
@@ -115,11 +116,18 @@ function Menu({ setCart }: MenuProps) {
             key={food.name}
             className="relative border rounded-lg border-red-800 overflow-hidden transform sm:hover:scale-105 hover:shadow-lg transition ease-in-out duration-500"
           >
-            <img
-              className="w-full h-48 sm:h-56 object-cover"
-              src={food.src}
-              alt={food.name}
-            />
+            <LazyLoad
+              height={200}
+              offset={100}
+              placeholder={<div>Loading...</div>}
+            >
+              <img
+                className="w-full h-48 sm:h-56 object-cover"
+                src={food.src}
+                alt={food.name}
+                loading="lazy"
+              />
+            </LazyLoad>
             <div className="flex justify-between items-center text-base px-2 py-1 bg-gray-50">
               <span className="text-red-800">{parseName(food.name)}</span>
               <Button value="Add Me" onClick={() => handleAddToCart(food)} />
