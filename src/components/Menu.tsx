@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo, useCallback, useMemo } from "react";
 import parseName from "../functions/parseName";
 import Button from "./Button";
 import { toast } from "sonner";
@@ -45,44 +45,75 @@ function Menu({ setCart }: MenuProps) {
     }
   }, [tokens, allMenuItems]);
 
-  const handleAddToCart = (food: MenuItem) => {
-    setCart((prevCart) => {
-      const existingItem = prevCart.find((item) => item.name === food.name);
-      if (existingItem) {
-        return prevCart.map((item) =>
-          item.name === food.name ? { ...item, count: item.count + 1 } : item
-        );
-      } else {
-        return [...prevCart, { ...food, count: 1 }];
-      }
-    });
-    toast.success(parseName(food.name) + " added to cart");
-  };
-
-  const handleToggle = (token: keyof Tokens) => {
-    // do nothing if all is selected when it's true
-    if (!tokens["all"] || token !== "all") {
-      setTokens((prevValue) => {
-        const newTokens = { ...prevValue, [token]: !prevValue[token] };
-        // Set "all" to false if any other token is selected,
-        // to true if all others are deselected
-        if (token !== "all") {
-          newTokens.all = !Object.entries(newTokens).some(
-            ([key, value]) => key !== "all" && value === true
+  const handleAddToCart = useCallback(
+    (food: MenuItem) => {
+      setCart((prevCart) => {
+        const existingItem = prevCart.find((item) => item.name === food.name);
+        if (existingItem) {
+          return prevCart.map((item) =>
+            item.name === food.name ? { ...item, count: item.count + 1 } : item
           );
         } else {
-          // If "all" is toggled, set all other tokens to false
-          if (newTokens.all) {
-            Object.keys(newTokens).forEach((key) => {
-              if (key !== "all") newTokens[key as keyof Tokens] = false;
-            });
-          }
+          return [...prevCart, { ...food, count: 1 }];
         }
-
-        return newTokens;
       });
-    }
-  };
+      toast.success(parseName(food.name) + " added to cart");
+    },
+    [setCart]
+  );
+
+  const handleToggle = useCallback(
+    (token: keyof Tokens) => {
+      // do nothing if all is selected when it's true
+      if (!tokens["all"] || token !== "all") {
+        setTokens((prevValue) => {
+          const newTokens = { ...prevValue, [token]: !prevValue[token] };
+          // Set "all" to false if any other token is selected,
+          // to true if all others are deselected
+          if (token !== "all") {
+            newTokens.all = !Object.entries(newTokens).some(
+              ([key, value]) => key !== "all" && value === true
+            );
+          } else {
+            // If "all" is toggled, set all other tokens to false
+            if (newTokens.all) {
+              Object.keys(newTokens).forEach((key) => {
+                if (key !== "all") newTokens[key as keyof Tokens] = false;
+              });
+            }
+          }
+
+          return newTokens;
+        });
+      }
+    },
+    [tokens]
+  );
+
+  const memoizedMenuItems = useMemo(() => {
+    return menuItems.map((food) => (
+      <div
+        key={food.name}
+        className="relative border rounded-lg border-red-800 overflow-hidden transform sm:hover:scale-105 hover:shadow-lg transition ease-in-out duration-500"
+      >
+        <LazyLoad height={200} offset={100} placeholder={<div>Loading...</div>}>
+          <img
+            className="w-full h-48 sm:h-56 object-cover"
+            src={food.src}
+            alt={food.name}
+            loading="lazy"
+          />
+        </LazyLoad>
+        <div className="flex justify-between items-center text-base px-2 py-1 bg-gray-50">
+          <span className="text-red-800">{parseName(food.name)}</span>
+          <Button value="Add Me" onClick={() => handleAddToCart(food)} />
+        </div>
+        <div className="absolute top-0 m-2 py-1 px-2 bg-gray-400 rounded-full ">
+          <span className="text-white">${food.price}</span>
+        </div>
+      </div>
+    ));
+  }, [menuItems, handleAddToCart]);
 
   return (
     <section
@@ -111,35 +142,10 @@ function Menu({ setCart }: MenuProps) {
       </div>
 
       <div className="grid gap-10 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 p-4 sm:p-10">
-        {menuItems.map((food) => (
-          <div
-            key={food.name}
-            className="relative border rounded-lg border-red-800 overflow-hidden transform sm:hover:scale-105 hover:shadow-lg transition ease-in-out duration-500"
-          >
-            <LazyLoad
-              height={200}
-              offset={100}
-              placeholder={<div>Loading...</div>}
-            >
-              <img
-                className="w-full h-48 sm:h-56 object-cover"
-                src={food.src}
-                alt={food.name}
-                loading="lazy"
-              />
-            </LazyLoad>
-            <div className="flex justify-between items-center text-base px-2 py-1 bg-gray-50">
-              <span className="text-red-800">{parseName(food.name)}</span>
-              <Button value="Add Me" onClick={() => handleAddToCart(food)} />
-            </div>
-            <div className="absolute top-0 m-2 py-1 px-2 bg-gray-400 rounded-full ">
-              <span className="text-white">${food.price}</span>
-            </div>
-          </div>
-        ))}
+        {memoizedMenuItems}
       </div>
     </section>
   );
 }
 
-export default Menu;
+export default memo(Menu);

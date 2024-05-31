@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 function Footer() {
   return (
     <div className="flex justify-center items-center w-full h-16 bg-gradient-to-b from-red-50 to-red-600">
@@ -28,4 +30,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default memo(Footer);
