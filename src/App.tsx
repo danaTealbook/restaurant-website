@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Header from "./components/Header/Header";
-import Main from "./components/Main";
+import Main from "./components/Main/Main";
 import { MenuItem } from "./interfaces/MenuItem";
-import Menu from "./components/Menu";
+import Menu from "./components/Menu/Menu";
 import Cart from "./components/Cart/Cart";
 import Footer from "./components/Footer/Footer";
 import { Toaster } from "sonner";

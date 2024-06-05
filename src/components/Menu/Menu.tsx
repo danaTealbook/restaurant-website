@@ -1,9 +1,9 @@
 import { useState, useEffect, memo, useCallback, useMemo } from "react";
-import parseName from "../functions/parseName";
-import Button from "./Button/Button";
+import parseName from "../../functions/parseName";
+import Button from "../Button/Button";
 import { toast } from "sonner";
-import { MenuItem } from "../interfaces/MenuItem";
-import { Tokens } from "../interfaces/Tokens";
+import { MenuItem } from "../../interfaces/MenuItem";
+import { Tokens } from "../../interfaces/Tokens";
 import LazyLoad from "react-lazyload";
 
 type MenuProps = {
@@ -119,6 +119,7 @@ function Menu({ setCart }: MenuProps) {
     <section
       id="menu"
       className="col-span-4 order-1 sm:col-span-3 sm:order-2 bg-gray-100 m-0 px-4 lg:px-24"
+      data-testid="menu"
     >
       <div className="flex justify-center pt-4">
         <img

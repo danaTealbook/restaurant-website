@@ -1,9 +1,10 @@
-import ParticlesBackground from "./ParticlesBackground";
+import ParticlesBackground from "../ParticlesBackground";
 
 function Main() {
   return (
     <section
       id="main"
+      data-testid="main"
       className="flex justify-center flex-col items-center min-h-screen bg-cover bg-center bg-no-repeat text-white shadow-md"
       style={{ backgroundImage: "url('./images/main-background.jpg')" }}
     >
