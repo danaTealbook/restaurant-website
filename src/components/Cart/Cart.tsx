@@ -1,6 +1,7 @@
-import parseName from "../functions/parseName";
-import { MenuItem } from "../interfaces/MenuItem";
-import Button from "./Button";
+// import { memo } from "react";
+import parseName from "../../functions/parseName";
+import { MenuItem } from "../../interfaces/MenuItem";
+import Button from "../Button/Button";
 import { toast } from "sonner";
 
 type CartProps = {

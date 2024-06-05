@@ -1,6 +1,6 @@
 import { useState, useEffect, memo, useCallback, useMemo } from "react";
 import parseName from "../functions/parseName";
-import Button from "./Button";
+import Button from "./Button/Button";
 import { toast } from "sonner";
 import { MenuItem } from "../interfaces/MenuItem";
 import { Tokens } from "../interfaces/Tokens";

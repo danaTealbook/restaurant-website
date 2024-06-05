@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import Main from "./components/Main";
 import { MenuItem } from "./interfaces/MenuItem";
 import Menu from "./components/Menu";
-import Cart from "./components/Cart";
+import Cart from "./components/Cart/Cart";
 import Footer from "./components/Footer";
 import { Toaster } from "sonner";
 
