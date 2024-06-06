@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import Main from "./Main";
 
-jest.mock("../ParticlesBackground", () => () => (
+jest.mock("../ParticlesBackground/ParticlesBackground", () => () => (
   <div data-testid="particles-background"></div>
 ));
 

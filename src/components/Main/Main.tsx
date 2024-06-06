@@ -1,4 +1,4 @@
-import ParticlesBackground from "../ParticlesBackground";
+import ParticlesBackground from "../ParticlesBackground/ParticlesBackground";
 
 function Main() {
   return (

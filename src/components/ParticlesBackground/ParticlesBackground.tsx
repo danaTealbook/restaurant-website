@@ -68,6 +68,7 @@ const ParticlesBackground = () => {
       <Particles
         className="w-full min-h-screen absolute transform translate-z-0"
         id="tsparticles"
+        data-testid="tsparticles"
         particlesLoaded={particlesLoaded}
         options={options}
       />
