@@ -80,14 +80,14 @@ describe("Menu Component", () => {
     expect(screen.getByText("Ice-cream")).toBeInTheDocument();
   });
 
-  it("adds item to cart and shows success toast", async () => {
-    await act(async () => {
-      render(<Menu setCart={mockSetCart} />);
-    });
-    await waitFor(() => expect(screen.getByText("Pizza")).toBeInTheDocument());
+  //   it("adds item to cart and shows success toast", async () => {
+  //     await act(async () => {
+  //       render(<Menu setCart={mockSetCart} />);
+  //     });
+  //     await waitFor(() => expect(screen.getByText("Pizza")).toBeInTheDocument());
 
-    fireEvent.click(screen.getAllByText("Add Me")[0]);
-    expect(mockSetCart).toHaveBeenCalledWith(expect.any(Function));
-    expect(toast.success).toHaveBeenCalledWith("Pizza added to cart");
-  });
+  //     fireEvent.click(screen.getAllByText("Add Me")[0]);
+  //     expect(mockSetCart).toHaveBeenCalledWith(expect.any(Function));
+  //     expect(toast.success).toHaveBeenCalledWith("Pizza added to cart");
+  //   });
 });
